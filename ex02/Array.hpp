@@ -6,7 +6,7 @@
 /*   By: fsemke <fsemke@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:09:36 by fsemke            #+#    #+#             */
-/*   Updated: 2023/01/23 14:04:08 by fsemke           ###   ########.fr       */
+/*   Updated: 2023/01/31 13:52:33 by fsemke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class Array {
 			return *this;
 		}
 		T &operator[](unsigned const int idx) const {
-			if (idx >= this->_size || idx < 0) {
+			if (idx >= this->_size) {
 				throw std::exception();
 			}
 			return (this->_array[idx]);
