@@ -13,11 +13,22 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    std::cout << std::endl << std::endl;
+
     //SCOPE
     {
+        //Deep copy test
+        std::cout << "Deep copy test: " << std::endl;
         Array<int> tmp = numbers;
+        tmp[0] = 25;
+        std::cout << tmp[0] << " orig: " << numbers[0] << std::endl;
+        
         Array<int> test(tmp);
+        test[0] = 42;
+        std::cout << test[0] << " orig: " << numbers[0] << std::endl;
     }
+    std::cout << std::endl << std::endl;
+
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -29,6 +40,7 @@ int main(int, char**)
     }
     try
     {
+        std::cout << "access non-allocated memory: " << std::endl;
         numbers[-2] = 0;
     }
     catch(const std::exception& e)
@@ -48,6 +60,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }
